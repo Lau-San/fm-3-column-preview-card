@@ -1,0 +1,184 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+// Lexend Deca
+//		-> 400
+//
+// Big Shoulders Display
+// 		-> 700
+
+// Colors
+
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+// Paragraphs
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+
+// Background, headings, buttons
+$very-light-gray: hsl(0, 0%, 95%);
+
+// Breakpoints
+$tablet: 768px;
+
+:root {
+	font-size: 15px;
+}
+
+// Normalizing some stuff
+* {
+	color: $transparent-white;
+	font-size: 1rem;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: $very-light-gray;	
+}
+
+.container {
+	height: 100vh;
+	padding: 0 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: $tablet) {
+		min-height: 100vh;
+		height: fit-content;
+		padding: 5rem 0;
+		justify-content: flex-start;
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template: 1fr / repeat(3, 1fr);
+
+	@media (max-width: $tablet) {
+		width: 88%;
+		grid-template: repeat(3, 1fr) / 1fr;
+	}
+}
+
+.col {
+	$radius: .6rem;
+
+	font-family: 'Lexend Deca', sans-serif;
+	font-weight: 400;
+	max-width: 235px;
+	padding: 3.5em;
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: $tablet) {
+		max-width: 100%;
+	}
+
+	img {
+		width: 4.2rem;
+		margin-bottom: 2.8rem;
+	}
+
+	h1 {
+		color: #fff;
+		font-family: 'Big Shoulders Display', cursive;
+		font-size: 2.6rem;
+		text-transform: uppercase;
+		margin-bottom: 2rem;
+	}
+
+	p {
+		letter-spacing: .06em;
+		line-height: 1.8em;
+		margin-bottom: 6rem;
+		flex: 1;
+
+		@media (max-width: $tablet) {
+			margin-bottom: 2rem;
+			flex: 0;
+		}
+	}
+
+	a {
+		background: #fff;
+		border: 3px solid #fff;
+		border-radius: 999rem;
+		width: fit-content;
+		display: inline-block;
+		padding: .9rem 2rem;
+		transition: background-color .5s ease, color .5s ease;
+
+		&:hover {
+			background: transparent;
+			color: #fff;
+		}
+	}
+
+	&:first-child {
+		border-radius: $radius 0 0 $radius;
+
+		@media (max-width: $tablet) {
+			border-radius: $radius $radius 0 0;
+		}
+	}
+
+	&:last-child {
+		border-radius: 0 $radius $radius 0;
+
+		@media (max-width: $tablet) {
+			border-radius: 0 0 $radius $radius;
+		}
+	}
+}
+
+.sedans {
+	background: $bright-orange;
+
+	a {
+		color: $bright-orange;
+	}
+}
+
+.suvs {
+	background: $dark-cyan;
+
+	a {
+		color: $dark-cyan
+	}
+}
+
+.luxury {
+	background: $very-dark-cyan;
+
+	a {
+		color: $very-dark-cyan
+	}
+}
+
+.attribution {
+	color: $very-dark-cyan;
+	font-family: 'Lexend Deca', sans-serif;
+	text-align: center;
+
+	@media (max-width: $tablet) {
+		margin: 2rem;
+		font-size: 1.2rem;
+	}
+
+	a {
+		font-size: inherit;
+		color: $dark-cyan;
+		transition: color 1s ease;
+
+		&:hover {
+			color: $bright-orange;
+			text-decoration: underline;
+		}
+	}
+}
